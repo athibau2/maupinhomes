@@ -2,7 +2,9 @@
   <v-app class="main-fade">
     <v-app-bar
       height="90px"
+      :shrink-on-scroll="isMobile ? false : true"
       prominent
+      fixed
       app
       flat
     >
@@ -99,7 +101,7 @@
       absolute
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }}&ensp;{{ title }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -109,7 +111,7 @@ export default {
   name: 'Default2Layout',
   data () {
     return {
-      title: 'Maupin Homes LLC',
+      title: 'Maupin Homes, LLC',
       menu: [
         {
           to: '/',

@@ -84,7 +84,7 @@
       absolute
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }}&ensp;{{ title }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -94,7 +94,7 @@ export default {
   name: 'DefaultLayout',
   data () {
     return {
-      title: 'Maupin Homes LLC',
+      title: 'Maupin Homes, LLC',
       menu: [
         {
           to: '/gallery',
