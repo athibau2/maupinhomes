@@ -2,7 +2,7 @@
   <v-app class="main-fade">
     <v-app-bar
       height="90px"
-      absolute
+      shrink-on-scroll
       app
       flat
     >
@@ -28,6 +28,15 @@
         to="/"
       >
         Home
+      </v-btn>
+      <v-btn class="nav-btn"
+        v-if="!isMobile"
+        elevation="0"
+        color="transparent"
+        height="50px"
+        to="/gallery"
+      >
+        Gallery
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
@@ -107,6 +116,10 @@ export default {
           text: 'Home',
         },
         {
+          to: '/gallery',
+          text: 'Gallery',
+        },
+        {
           to: '/reviews',
           text: 'Reviews',
         },
@@ -140,6 +153,7 @@ export default {
 .nav-btn {
   /* margin-right: 5px; */
   font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #2c2924;
 }
 

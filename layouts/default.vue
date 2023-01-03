@@ -28,6 +28,7 @@
         elevation="0"
         color="transparent"
         height="50px"
+        to="/reviews"
       >
         Reviews
       </v-btn>
@@ -36,6 +37,7 @@
         elevation="0"
         color="transparent"
         height="50px"
+        to="/contact"
       >
         Contact Us
       </v-btn>
