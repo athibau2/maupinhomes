@@ -2,7 +2,7 @@
   <v-app class="main-fade">
     <v-app-bar
       height="90px"
-      shrink-on-scroll
+      prominent
       app
       flat
     >
