@@ -13,6 +13,8 @@
           gradient="to top right, #edf0ee, #9c8c94, #edf0ee"
         ></v-img>
       </template>
+
+      <!-- Logo -->
       <button @click="toHome()">
         <img src="~/assets/images/maupin_homes_logo-hq.png" width="120px" />
       </button>
@@ -23,9 +25,9 @@
         elevation="0"
         color="transparent"
         height="50px"
-        to="/gallery"
+        to="/"
       >
-        Gallery
+        Home
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
@@ -78,11 +80,12 @@
       </v-menu>
     </v-app-bar>
 
-    <v-main class="main-fade" style="background-color: #edf0ee;">
-      <v-container class="main">
+    <v-main class="main-fade" id="main">
+      <v-container>
         <Nuxt />
       </v-container>
     </v-main>
+
     <v-footer class="footer"
       absolute
       app
@@ -145,10 +148,6 @@ export default {
   margin-bottom: 40%;
   margin-left: 20%;
   text-align: center;
-}
-
-.footer {
-  background-color: #7b7976;
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row class="index" justify="center" align="center">
     <div class="main-text">
       <h2 data-aos="fade-up">Our History</h2>
       <p data-aos="fade-up">
@@ -35,9 +35,9 @@ export default {
 <style scoped>
 @import "~/assets/styles.css";
 
-.main-text {
-
-}
+/* .main-text {
+  
+} */
 
 h2 {
   color: #2c2924;

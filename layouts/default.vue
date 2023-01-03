@@ -8,6 +8,7 @@
       prominent
       :src="require(`@/assets/images/projects/crops/home_page.jpg`)"
     >
+      <!-- Logo -->
       <button @click="toHome()">
         <img src="~/assets/images/maupin_homes_logo-hq.png" width="120px" />
       </button>
@@ -71,11 +72,12 @@
       </v-menu>
     </v-app-bar>
 
-    <v-main class="main-fade" style="background-color: #edf0ee;">
-      <v-container class="main">
+    <v-main class="main-fade" id="main">
+      <v-container>
         <Nuxt />
       </v-container>
     </v-main>
+
     <v-footer class="footer"
       absolute
       app
@@ -139,10 +141,6 @@ export default {
   margin-bottom: 40%;
   margin-left: 20%;
   text-align: center;
-}
-
-.footer {
-  background-color: #7b7976;
 }
 
 </style>
