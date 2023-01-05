@@ -3,18 +3,26 @@
     <div class="main-text">
       <h2 class="text-center" data-aos="fade-up">About Us</h2>
       <p data-aos="fade-up">
-        <v-avatar class="avatar" :size="isMobile ? '100' : '150'">
-          <a target="_blank" href="https://maupinhomesco.com/profile.jpg">
-            <img src="~/assets/images/profile.jpg"/>
-          </a>
-        </v-avatar>
-        <span class="about-text">
+        <a target="_blank" href="https://maupinhomesco.com/profile.jpg">
+          <v-avatar class="avatar" :size="isMobile ? '100' : '150'">
+              <img src="~/assets/images/profile.jpg"/>
+          </v-avatar>
+        </a>
+        <span class="text">
           The face behind the name&mdash;Andy Maupin is a Buena Vista native. Born and raised in this beautiful Colorado mountain town, he loves spending any time he can in nature and appreciating everything the landscape has to offer. Above all, he cares about his community and family. He embodies the core values of Maupin Homes with his honesty and integrity and truly cares about his clients as individuals. Having worked in all phases of construction since 1996, Andy is very hands on in each job he does and ensures every job is impeccably completed.
         </span>
       </p>
+      
+      <v-divider class="divider" />
+
+      <h2 class="text-center" data-aos="fade-up">Our History</h2>
       <p data-aos="fade-up">
-        Sed dictum sem ut pharetra cursus. Quisque porttitor venenatis orci. Pellentesque pharetra venenatis leo, non egestas ipsum porttitor quis. Nullam congue odio tellus, nec lobortis odio dapibus vitae. Ut eget orci in ante lobortis luctus in lacinia mauris. Aliquam faucibus ornare dolor, vitae congue ligula vestibulum lacinia. Sed efficitur pellentesque lorem, nec feugiat ante aliquam sit amet. Phasellus commodo consectetur lacus ut venenatis. Fusce facilisis molestie pellentesque. Mauris leo justo, convallis et blandit ut, dignissim quis diam. Mauris suscipit tortor eros, quis sagittis leo feugiat id. Mauris mauris nisi, venenatis laoreet efficitur ornare, pretium eu ante.
+        <span class="text">
+          Maupin Homes began in 2020 and has continued to grow in the custom home business since then. We specialize in a modernized, clean, rustic style that fits perfectly into the amazing surrounding landscape. We strive to work with our clients to build the beautiful custom home of their dreams. We pride ourselves on being precise on every aspect of the home, down to the tiniest detail to make it perfect.
+        </span>
       </p>
+
+      <v-divider class="divider" />
 
       <h2 class="text-center" data-aos="fade-up">Our Services</h2>
       <v-row class="services-row" data-aos="fade-up">
@@ -61,12 +69,8 @@ export default {
 @import "~/assets/styles.css";
 
 .main-text {
-  margin: 10px 20px;  
-}
-
-h2 {
-  color: #2c2924;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 85%;
+  margin-top: 20px;
 }
 
 .avatar {
@@ -74,10 +78,15 @@ h2 {
   margin-right: 15px;
 }
 
-.about-text {
+.text {
   text-align: justify;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
+}
+
+.divider {
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 .services-row {
@@ -86,6 +95,7 @@ h2 {
 }
 
 .card {
+  background-color: #edf0ee;
 }
 
 </style>

@@ -85,6 +85,8 @@
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}&ensp;{{ title }}</span>
+      <v-spacer />
+      <a href="https://maupinhomesco.com/contact"><span>Contact Us</span></a>
     </v-footer>
   </v-app>
 </template>

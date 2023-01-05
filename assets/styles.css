@@ -3,6 +3,10 @@
     margin-top: 10px;
 }
 
+h2 {
+    color: #2c2924;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 .footer {
     background-color: rgba(123, 121, 118, 0.5);
