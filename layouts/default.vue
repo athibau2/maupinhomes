@@ -86,7 +86,7 @@
     >
       <span>&copy; {{ new Date().getFullYear() }}&ensp;{{ title }}</span>
       <v-spacer />
-      <a href="https://maupinhomesco.com/contact"><span>Contact Us</span></a>
+      <nuxt-link to="/contact"><span>Contact Us</span></nuxt-link>
     </v-footer>
   </v-app>
 </template>

@@ -7,12 +7,14 @@
             <input
                 class="name-field"
                 v-model="name"
+                type="name"
                 placeholder="Enter your name"
                 required
             />
             <input
                 class="email-field"
                 v-model="email"
+                type="email"
                 placeholder="Enter your email"
                 required
             />
@@ -24,6 +26,17 @@
                 required
             ></textarea>
         </div>
+
+        <br>
+        <v-btn class="form-btn" @click="clearForm()">
+            <v-icon>mdi-close-circle</v-icon>
+            <span>Clear</span>
+        </v-btn>
+        <v-btn class="form-btn" @click="sendEmail()">
+            <v-icon>mdi-send</v-icon>
+            <span>Send</span>
+        </v-btn>
+
     </v-col>
   </v-row>
 </template>
@@ -41,6 +54,24 @@ export default {
         }
     },
 
+    methods: {
+        clearForm () {
+            this.name = ''
+            this.email = ''
+            this.message = ''
+        },
+
+        sendEmail () {
+            if (this.name === '' || this.email === '' || this.message === '') {
+                alert('No field may be left empty.')
+            } else {
+                console.log('sending email...')
+                // TODO: send email
+                this.clearForm()
+            }
+        },
+    },
+
     computed: {
         isMobile () {
             let check = false;
@@ -53,6 +84,10 @@ export default {
 
 <style scoped>
 @import "~/assets/styles.css";
+
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .form {
     margin-top: 20px;
@@ -70,11 +105,19 @@ export default {
 }
 
 .message-field {
-    width: 98%;
+    width: 98.5%;
     background-color: #edf0ee;
     padding: 10px;
     border-radius: 15px;
     border: solid #9c8c94;
+}
+
+.form-btn {
+    background-color: #9c8c94 !important;
+    background: linear-gradient(to bottom right, #08a3e0, #9c8c94);
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2b2b24;
 }
 
 </style>
