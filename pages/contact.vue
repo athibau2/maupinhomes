@@ -3,11 +3,19 @@
     <v-col class="text-center">
         <h2>Interested in learning more?</h2>
         <h5>Contact us below to schedule a consultation.</h5>
-        <div class="form" :style="{'width': isMobile ? '90%' : '60%'}">
+        <form class="form"
+            :action="'https://formspree.io/f/mjvdvelp'"
+            method="POST"
+            :style="{'width': isMobile ? '90%' : '60%'}"
+        >
+            <!-- FormSpark action: 'https://submit-form.com/AVmOTv5s', no POST method -->
+            <!-- Following line is for FormSpark -->
+            <!-- <input type="hidden" name="_redirect" value="https://maupinhomesco.com/contact" /> -->
             <input
                 class="name-field"
                 v-model="name"
                 type="name"
+                name="name"
                 placeholder="Enter your name"
                 required
             />
@@ -15,27 +23,29 @@
                 class="email-field"
                 v-model="email"
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 required
             />
             <textarea
                 class="message-field"
                 v-model="message"
+                name="message"
                 placeholder="Enter your message"
                 rows="8"
                 required
             ></textarea>
-        </div>
+            <br>
+            <v-btn class="form-btn" @click="clearForm()">
+                <v-icon>mdi-close-circle</v-icon>
+                <span>Clear</span>
+            </v-btn>
+            <v-btn class="form-btn" type="submit">
+                <v-icon>mdi-send</v-icon>
+                <span>Send</span>
+            </v-btn>
+        </form>
 
-        <br>
-        <v-btn class="form-btn" @click="clearForm()">
-            <v-icon>mdi-close-circle</v-icon>
-            <span>Clear</span>
-        </v-btn>
-        <v-btn class="form-btn" @click="sendEmail()">
-            <v-icon>mdi-send</v-icon>
-            <span>Send</span>
-        </v-btn>
 
     </v-col>
   </v-row>
@@ -45,6 +55,14 @@
 export default {
     name: 'ContactPage',
     layout: 'default2',
+
+    mounted () {
+        // Following 'if' statement is for FormSpark
+        // if (this.$route.query.email != undefined) {
+        //     alert('Thank you for your message! We will get back to you as soon as we can.')
+        //     this.$router.push('/contact')
+        // }
+    },
 
     data () {
         return {
@@ -59,16 +77,6 @@ export default {
             this.name = ''
             this.email = ''
             this.message = ''
-        },
-
-        sendEmail () {
-            if (this.name === '' || this.email === '' || this.message === '') {
-                alert('No field may be left empty.')
-            } else {
-                console.log('sending email...')
-                // TODO: send email
-                this.clearForm()
-            }
         },
     },
 

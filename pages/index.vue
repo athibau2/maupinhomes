@@ -97,6 +97,7 @@ export default {
 
 .text {
   text-align: justify;
+  color: #2c2924;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
 }
