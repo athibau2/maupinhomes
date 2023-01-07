@@ -40,7 +40,7 @@
                 <v-icon>mdi-close-circle</v-icon>
                 <span>Clear</span>
             </v-btn>
-            <v-btn class="form-btn" type="submit">
+            <v-btn class="form-btn" type="submit" @click="clearForm()">
                 <v-icon>mdi-send</v-icon>
                 <span>Send</span>
             </v-btn>
