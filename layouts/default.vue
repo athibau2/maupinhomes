@@ -1,15 +1,16 @@
 <template>
   <v-app class="main-fade">
-    <v-app-bar
+    <v-app-bar class="app-bar"
       :height="isMobile ? '350px' : '675px'"
       absolute
       app
       flat
       prominent
+      fade-img-on-scroll
       :src="require(`@/assets/images/projects/crops/home_page.jpg`)"
     >
       <!-- Logo -->
-      <button @click="toHome()">
+      <button :class="isMobile ? null : 'logo'" @click="toHome()">
         <img src="~/assets/images/maupin_homes_logo-hq.png" width="120px" />
       </button>
       <v-spacer />
@@ -32,7 +33,7 @@
       >
         Reviews
       </v-btn>
-      <v-btn class="nav-btn"
+      <v-btn class="nav-btn" id="right-btn"
         v-if="!isMobile"
         elevation="0"
         color="transparent"

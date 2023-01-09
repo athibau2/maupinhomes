@@ -15,10 +15,10 @@
       
       <v-divider class="divider" />
 
-      <h2 class="text-center" data-aos="fade-up">Our History</h2>
+      <h2 class="text-center" data-aos="fade-up">Our Mission</h2>
       <p data-aos="fade-up">
         <span class="text">
-          Maupin Homes began in 2020 and has continued to grow in the custom home business since then. We specialize in a modernized, clean, rustic style that fits perfectly into the amazing surrounding landscape. We strive to work with our clients to build the beautiful custom home of their dreams. We pride ourselves on being precise on every aspect of the home, down to the tiniest detail to make it perfect.
+          Maupin Homes continues to grow in the custom home business specializing in a modernized, clean, rustic style that fits perfectly into the amazing surrounding landscape. We strive to work with our clients to build the beautiful custom home of your dreams. We pride ourselves on bringing quality into every aspect of the home, down to the tiniest detail to make it yours.
         </span>
       </p>
 
@@ -41,17 +41,21 @@
 
       <!-- Mobile view services section -->
       <v-row justify="center" align="center" v-else-if="isMobile">
-      <v-col class="services-row-mobile" data-aos="fade-up" >
-        <v-card class="card" height="200px" width="200px" data-aos="fade-up">
-          <v-card-title>Service 1</v-card-title>
-        </v-card>
-        <v-card class="card" height="200px" width="200px" data-aos="fade-up">
-          <v-card-title>Service 2</v-card-title>
-        </v-card>
-        <v-card class="card" height="200px" width="200px" data-aos="fade-up">
-          <v-card-title>Service 3</v-card-title>
-        </v-card>
-      </v-col>
+        <v-col class="services-row-mobile" data-aos="fade-up" >
+          <v-card class="card" height="200px" width="200px" data-aos="fade-up">
+            <v-card-title>Service 1</v-card-title>
+          </v-card>
+          <v-card class="card" height="200px" width="200px" data-aos="fade-up">
+            <v-card-title>Service 2</v-card-title>
+          </v-card>
+          <v-card class="card" height="200px" width="200px" data-aos="fade-up">
+            <v-card-title>Service 3</v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row class="text-center" justify="center" align="center">
+        <v-btn class="contact-btn" to="/contact">Contact Us</v-btn>
       </v-row>
     </div>
   </v-row>
@@ -84,6 +88,10 @@ export default {
 
 <style scoped>
 @import "~/assets/styles.css";
+
+h2 {
+  margin-bottom: 10px;
+}
 
 .main-text {
   width: 85%;
@@ -121,6 +129,19 @@ export default {
 .card {
   background-color: #edf0ee;
   margin-bottom: 10px;
+}
+
+.contact-btn {
+  font-size: 18px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #2b2b24;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #2b2b24;
+  width: 275px;
+  height: 60px !important;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  background: linear-gradient(to right, rgba(8, 163, 224, 0.4), #edf0ee, rgba(8, 163, 224, 0.4)) !important;
 }
 
 </style>

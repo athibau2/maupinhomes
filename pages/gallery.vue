@@ -52,8 +52,8 @@ export default {
 @import "~/assets/styles.css";
 
 .gallery {
-  max-width: 80%;
-  margin-left: 10%;
+  max-width: 75%;
+  margin-left: 12.5%;
 }
 
 .gallery-mobile {

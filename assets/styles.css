@@ -3,6 +3,14 @@
     margin-top: 10px;
 }
 
+.logo {
+    margin-left: 5%;
+}
+
+#right-btn {
+    margin-right: 5%;
+}
+
 h2 {
     color: #2c2924;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

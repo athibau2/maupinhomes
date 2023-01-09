@@ -7,6 +7,7 @@
             :action="'https://formspree.io/f/mjvdvelp'"
             method="POST"
             :style="{'width': isMobile ? '90%' : '60%'}"
+            data-aos="fade-up"
         >
             <!-- FormSpark action: 'https://submit-form.com/AVmOTv5s', no POST method -->
             <!-- Following line is for FormSpark -->
@@ -126,6 +127,9 @@ h5 {
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #2b2b24;
+    padding: 15px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
 }
 
 </style>

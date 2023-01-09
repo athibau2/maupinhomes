@@ -17,7 +17,7 @@
       </template>
 
       <!-- Logo -->
-      <button @click="toHome()">
+      <button :class="isMobile ? null : 'logo'" @click="toHome()">
         <img src="~/assets/images/maupin_homes_logo-hq.png" width="120px" />
       </button>
       <v-spacer />
@@ -49,7 +49,7 @@
       >
         Reviews
       </v-btn>
-      <v-btn class="nav-btn"
+      <v-btn class="nav-btn" id="right-btn"
         v-if="!isMobile"
         elevation="0"
         color="transparent"
