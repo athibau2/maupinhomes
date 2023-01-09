@@ -22,12 +22,12 @@
         </span>
       </p>
 
-      <v-divider class="divider" />
+      <!-- <v-divider class="divider" />
 
-      <h2 class="text-center" data-aos="fade-up">Our Services</h2>
+      <h2 class="text-center" data-aos="fade-up">Our Services</h2> -->
 
       <!-- Computer view services section -->
-      <v-row class="services-row" data-aos="fade-up" v-if="!isMobile">
+      <!-- <v-row class="services-row" data-aos="fade-up" v-if="!isMobile">
         <v-card class="card" height="200px" width="200px" data-aos="fade-up">
           <v-card-title>Service 1</v-card-title>
         </v-card>
@@ -37,10 +37,10 @@
         <v-card class="card" height="200px" width="200px" data-aos="fade-up">
           <v-card-title>Service 3</v-card-title>
         </v-card>
-      </v-row>
+      </v-row> -->
 
       <!-- Mobile view services section -->
-      <v-row justify="center" align="center" v-else-if="isMobile">
+      <!-- <v-row justify="center" align="center" v-else-if="isMobile">
         <v-col class="services-row-mobile" data-aos="fade-up" >
           <v-card class="card" height="200px" width="200px" data-aos="fade-up">
             <v-card-title>Service 1</v-card-title>
@@ -52,7 +52,7 @@
             <v-card-title>Service 3</v-card-title>
           </v-card>
         </v-col>
-      </v-row>
+      </v-row> -->
 
       <v-row class="text-center" justify="center" align="center">
         <v-btn class="contact-btn" to="/contact">Contact Us</v-btn>
