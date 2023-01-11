@@ -56,6 +56,19 @@
         </p>
       </div>
 
+      <div class="review" data-aos="fade-up">
+        <p>
+          <!-- <i class="fas fa-quote-left fa-lg" id="left-quote"></i> -->
+          <svg id="left-quote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"/></svg>
+          <span class="review-text">
+            Andy Maupin/Maupin Homes was fantastic to work with. He made our mountain home dream a reality. He was more than willing to work with our budget and stay on point throughout the project. His ability to design and expertise in customization is top notch. We had complete trust in Andy as we were 1,000 miles away during the build. The communication, pictures and progress was always on point. The entire process from start to finish could not have gone any better. We highly recommend Andy for all of your building needs. He is a highly skilled contractor.
+          </span>
+          <!-- <i class="fas fa-quote-right fa-lg" id="right-quote"></i> -->
+          <svg id="right-quote" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z"/></svg>
+          <v-subheader class="name">&#126;Jamie &amp; Josh M.</v-subheader>
+        </p>
+      </div>
+
       <br>
     </v-col>
   </v-row>
