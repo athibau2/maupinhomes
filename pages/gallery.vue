@@ -34,7 +34,7 @@ export default {
 
   data () {
     return {
-      numPics: 22,
+      numPics: 26,
     }
   },
 
