@@ -1,5 +1,5 @@
 <template>
-  <v-row :class="isMobile ? 'gallery-mobile' : 'gallery'" justify="center" align="center">
+  <v-row :class="isMobile ? 'gallery-mobile' : 'gallery'" justify="center" align="top">
     <v-col>
       <span v-for="i in numPics / 2" :key="i">
         <figure data-aos="fade-up-right">
@@ -34,7 +34,7 @@ export default {
 
   data () {
     return {
-      numPics: 26,
+      numPics: 24,
     }
   },
 
@@ -72,29 +72,6 @@ export default {
   border-style: solid;
   
 }
-
-/* .gallery {
-  margin-left: 7.5%;
-  max-width: 85%;
-  display: inline-grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  align-content: flex-start;
-  column-gap: 10px;
-  row-gap: 10px;
-}
-
-.gallery__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-img {
-  width: 25%;
-  margin: 2px;
-  border-radius: 8px;
-} */
 
 
 </style>
