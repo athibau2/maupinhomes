@@ -3,25 +3,29 @@
     <v-col>
       <span v-for="i in numPics / 2" :key="i">
         <figure data-aos="fade-up-right">
-          <img class="gallery__img" :id="`pic${i}`"
-            :src="require(`~/assets/images/projects/pic${i}.jpg`)"
-            @click="showModal(i)"
-          />
+          <button>
+            <img class="gallery__img" :id="`pic${i}`"
+              :src="require(`~/assets/images/projects/pic${i}.jpg`)"
+              @click="showModal(i)"
+            />
+          </button>
         </figure>
       </span>
     </v-col>
     <v-col>
       <span v-for="i in numPics / 2" :key="i">
         <figure data-aos="fade-up-left">
-          <img class="gallery__img" :id="`pic${i + (numPics / 2)}`"
-            :src="require(`~/assets/images/projects/pic${i + (numPics / 2)}.jpg`)"
-            @click="showModal(i + (numPics / 2))"
-          />
+          <button>
+            <img class="gallery__img" :id="`pic${i + (numPics / 2)}`"
+              :src="require(`~/assets/images/projects/pic${i + (numPics / 2)}.jpg`)"
+              @click="showModal(i + (numPics / 2))"
+            />
+          </button>
         </figure>
       </span>
     </v-col>
 
-    <Gallery v-show="show" :imgSrc="index" @close-modal="show = false" />
+    <Gallery v-show="show" :imgSrc="index" :numPics="numPics" @close-modal="show = false" />
 
   </v-row>
 </template>

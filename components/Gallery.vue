@@ -6,18 +6,19 @@
         >
           <!-- Computer view -->
           <v-row justify="center" align="center" v-if="!isMobile">
-            <!-- <v-btn icon><v-icon>mdi-chevron-left</v-icon></v-btn> -->
             <img class="image" :src="`pic${imgSrc}.jpg`" />
-            <!-- <v-btn icon><v-icon>mdi-chevron-right</v-icon></v-btn> -->
+            <v-btn icon @click="decrement()"><v-icon class="chevron" size="50">mdi-chevron-left</v-icon></v-btn>
+            <span>&ensp;&ensp;</span>
+            <v-btn icon @click="increment()"><v-icon class="chevron" size="50">mdi-chevron-right</v-icon></v-btn>
           </v-row>
 
           <!-- Mobile view -->
           <v-col v-if="isMobile">
             <img class="mobile-image" :src="`pic${imgSrc}.jpg`" />
-            <v-row class="mobile-chevron">
-              <!-- <v-btn icon><v-icon>mdi-chevron-left</v-icon></v-btn> -->
-              <!-- <v-btn icon><v-icon>mdi-chevron-right</v-icon></v-btn> -->
-            </v-row>
+            <br>
+            <v-btn icon @click="decrement()"><v-icon class="chevron" size="50">mdi-chevron-left</v-icon></v-btn>
+            <span>&ensp;&ensp;</span>
+            <v-btn icon @click="increment()"><v-icon class="chevron" size="50">mdi-chevron-right</v-icon></v-btn>
           </v-col>
         </div>
     </div>
@@ -27,10 +28,7 @@
 export default {
   name: 'Gallery',
 
-  props: ['imgSrc'],
-
-  mounted () {
-  },
+  props: ['imgSrc', 'numPics'],
 
   data () {
     return {
@@ -39,6 +37,15 @@ export default {
   },
 
   methods: {
+    increment () {
+      if (this.imgSrc === this.numPics) this.imgSrc = 1
+      else this.imgSrc++
+    },
+
+    decrement () {
+      if (this.imgSrc === 1) this.imgSrc = this.numPics
+      else this.imgSrc--
+    },
   },
 
   computed: {
@@ -90,15 +97,15 @@ export default {
 .modal-mobile {
   text-align: center;
   background-color: transparent;
-  height: 70%;
-  width: 95%;
+  height: 60%;
+  width: 90%;
   margin-top: 30%;
   padding: 0px 0;
   border-radius: 20px;
 }
 
 .image {
-  max-height: 450px;
+  max-height: 400px;
   max-width: 500px;
   border: 2px solid #9c8c94;
   border-radius: 10px;
@@ -107,6 +114,12 @@ export default {
 .mobile-image {
   max-height: 400px;
   max-width: 350px;
+  border: 2px solid #9c8c94;
+  border-radius: 10px;
+}
+
+.chevron {
+  color: #edf0ee !important;
 }
 
 .mobile-chevron {
