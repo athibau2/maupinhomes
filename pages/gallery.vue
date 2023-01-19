@@ -3,38 +3,53 @@
     <v-col>
       <span v-for="i in numPics / 2" :key="i">
         <figure data-aos="fade-up-right">
-          <a target="_blank" :href="`https://maupinhomesco.com/pic${i}.jpg`">
-            <img class="gallery__img"
-              :src="require(`~/assets/images/projects/pic${i}.jpg`)"
-            />
-          </a>
+          <img class="gallery__img" :id="`pic${i}`"
+            :src="require(`~/assets/images/projects/pic${i}.jpg`)"
+            @click="showModal(i)"
+          />
         </figure>
       </span>
     </v-col>
     <v-col>
       <span v-for="i in numPics / 2" :key="i">
         <figure data-aos="fade-up-left">
-          <a target="_blank" :href="`https://maupinhomesco.com/pic${i + (numPics / 2)}.jpg`">
-            <img class="gallery__img"
+          <img class="gallery__img" :id="`pic${i + (numPics / 2)}`"
             :src="require(`~/assets/images/projects/pic${i + (numPics / 2)}.jpg`)"
-            />
-          </a>
+            @click="showModal(i + (numPics / 2))"
+          />
         </figure>
       </span>
     </v-col>
+
+    <Gallery v-show="show" :imgSrc="index" @close-modal="show = false" />
+
   </v-row>
 </template>
 
 <script>
 import aosMixin from '~/mixins/aos'
+import Gallery from '~/components/Gallery.vue'
 export default {
   name: 'GalleryPage',
   layout: 'default2',
   mixins: [aosMixin],
 
+  components: {
+    Gallery,
+  },
+
   data () {
     return {
       numPics: 24,
+      show: false,
+      index: 0,
+    }
+  },
+
+  methods: {
+    async showModal(index) {
+      this.index = index
+      this.show = true
     }
   },
 
