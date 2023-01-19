@@ -63,13 +63,25 @@ export default {
   display: flex;
   justify-content: center;
   background-color: #000000da;
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .modal {
   text-align: center;
   background-color: transparent;
-  height: 70%;
-  width: 50%;
+  height: 30%;
+  width: 20%;
   margin-top: 8%;
   padding: 0px 0;
   border-radius: 20px;
