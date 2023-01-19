@@ -46,7 +46,7 @@ export default {
     return {
       numPics: 24,
       show: false,
-      index: 0,
+      index: 1,
     }
   },
 

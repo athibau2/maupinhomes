@@ -6,7 +6,7 @@
         >
           <!-- Computer view -->
           <v-row justify="center" align="center" v-if="!isMobile">
-            <img class="image" :src="`pic${imgSrc}.jpg`" />
+            <img class="image" :src="require(`~/assets/images/projects/pic${imgSrc}.jpg`)" />
             <v-btn icon @click="decrement()"><v-icon class="chevron" size="50">mdi-chevron-left</v-icon></v-btn>
             <span>&ensp;&ensp;</span>
             <v-btn icon @click="increment()"><v-icon class="chevron" size="50">mdi-chevron-right</v-icon></v-btn>
@@ -14,7 +14,7 @@
 
           <!-- Mobile view -->
           <v-col v-if="isMobile">
-            <img class="mobile-image" :src="`pic${imgSrc}.jpg`" />
+            <img class="mobile-image" :src="require(`~/assets/images/projects/pic${imgSrc}.jpg`)" />
             <br>
             <v-btn icon @click="decrement()"><v-icon class="chevron" size="50">mdi-chevron-left</v-icon></v-btn>
             <span>&ensp;&ensp;</span>
