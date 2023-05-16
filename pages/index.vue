@@ -56,6 +56,7 @@
 
       <v-row class="text-center" justify="center" align="center">
         <v-btn class="contact-btn" to="/contact">Contact Us</v-btn>
+        <v-btn class="contact-btn" to="/homes" style="margin-left: 15px;">Homes For Sale</v-btn>
       </v-row>
     </div>
   </v-row>
