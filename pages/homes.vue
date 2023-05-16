@@ -26,9 +26,9 @@
                         />
                     </span>
                 </div>
-                <div class="text-row-wrapper">
+                <div class="text-row-wrapper" v-if="!isMobile">
                     <v-row class="text-row">
-                        <v-col class="text-center">
+                        <v-col class="text-center" cols="6">
                             <span class="header">Details</span><br>
                             <list>
                                 <list-item class="list-items">{{openHouse.price}}</list-item><br>
@@ -40,7 +40,7 @@
                                 <list-item class="list-items">{{openHouse.distance}}</list-item><br>
                             </list>
                         </v-col>
-                        <v-col class="text-center">
+                        <v-col class="text-center" cols="6">
                             <span class="header">Amenities</span><br>
                             <list>
                                 <list-item class="list-items" v-for="(item, i) in openHouse.amenities" :key="i">{{item}}<br></list-item>
@@ -48,6 +48,26 @@
                         </v-col>
                     </v-row>
                 </div>
+                <!-- <div class="text-row-wrapper" v-if="isMobile"> -->
+                <div class="text-center" style="margin: 20px" v-if="isMobile">
+                    <span class="header">Details</span><br>
+                    <list>
+                        <list-item class="list-items">{{openHouse.price}}</list-item><br>
+                        <list-item class="list-items">{{openHouse.numBeds}} Bed</list-item><br>
+                        <list-item class="list-items">{{openHouse.numBaths}} Bath</list-item><br>
+                        <list-item class="list-items">{{openHouse.totalSF}} Sq. Ft.</list-item><br>
+                        <list-item class="list-items">{{openHouse.neighborhood}}</list-item><br>
+                        <list-item class="list-items">{{openHouse.style}}</list-item><br>
+                        <list-item class="list-items">{{openHouse.distance}}</list-item><br>
+                    </list>
+                </div>
+                <div class="text-center" style="margin: 20px" v-if="isMobile">
+                    <span class="header">Amenities</span><br>
+                    <list>
+                        <list-item class="list-items" v-for="(item, i) in openHouse.amenities" :key="i">{{item}}<br></list-item>
+                    </list>
+                </div>
+                <!-- </div> -->
             </v-card>
         </v-dialog>
 
