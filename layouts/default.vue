@@ -7,7 +7,7 @@
       flat
       prominent
       fade-img-on-scroll
-      :src="require(`@/assets/images/projects/crops/home_page.jpg`)"
+      :src="require(`@/assets/images/projects/crops/${currentImage}`)"
     >
       <!-- Logo -->
       <button :class="isMobile ? null : 'logo'" @click="toHome()">
@@ -104,9 +104,21 @@
 <script>
 export default {
   name: 'DefaultLayout',
+
+  mounted () {
+    this.rotateImages()
+  },
+
   data () {
     return {
       title: 'Maupin Homes, LLC',
+      currentImage: 'home_page.jpg',
+      currentIndex: 1,
+      images: [
+        'home_page.jpg',
+        'pic1.jpg',
+        'pic19.jpg'
+      ],
       menu: [
         {
           to: '/gallery',
@@ -129,6 +141,13 @@ export default {
   },
 
   methods: {
+    rotateImages() {
+      setInterval(() => {
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        this.currentImage = this.images[this.currentIndex];
+      }, 5000);
+    },
+
     toHome () {
       this.$router.push('/')
     },
