@@ -20,18 +20,18 @@
         elevation="0"
         color="transparent"
         height="50px"
-        to="/gallery"
+        to="/homes"
       >
-        Gallery
+        Homes For Sale
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
         elevation="0"
         color="transparent"
         height="50px"
-        to="/homes"
+        to="/gallery"
       >
-        For Sale
+        Gallery
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
@@ -113,7 +113,7 @@ export default {
     return {
       title: 'Maupin Homes, LLC',
       currentImage: 'home_page.jpg',
-      currentIndex: 1,
+      currentIndex: 0,
       images: [
         'home_page.jpg',
         'pic1.jpg',
@@ -121,12 +121,12 @@ export default {
       ],
       menu: [
         {
-          to: '/gallery',
-          text: 'Gallery',
+          to: '/homes',
+          text: 'Homes For Sale'
         },
         {
-          to: '/homes',
-          text: 'For Sale'
+          to: '/gallery',
+          text: 'Gallery',
         },
         {
           to: '/reviews',
@@ -143,7 +143,8 @@ export default {
   methods: {
     rotateImages() {
       setInterval(() => {
-        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        if (this.currentIndex === this.images.length - 1) this.currentIndex = 0
+        else this.currentIndex++
         this.currentImage = this.images[this.currentIndex];
       }, 5000);
     },

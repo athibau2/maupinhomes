@@ -2,7 +2,49 @@
     <div>
         <h2 class="text-center">Current Homes For Sale</h2>
 
-        <v-dialog v-if="showDialog" v-model="showDialog"
+        <!-- Gallery Dialog -->
+        <v-dialog v-if="showImageDialog"
+            v-model="showImageDialog"
+            transition="dialog-bottom-transition"
+            width="auto"
+        >
+            <v-card>
+                <v-toolbar class="dialog-toolbar">
+                    <v-btn icon @click="showImageDialog = false">
+                        <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                    <v-toolbar-title
+                        :style="isMobile ? {'font-size': '16px'} : null"
+                    >
+                        Images for {{dialogHouseGallery.address}}
+                    </v-toolbar-title>
+                </v-toolbar>
+                <span class="title-container">
+                    <v-btn class="chevron" v-if="!isMobile" @click="decrementGallery()" icon>
+                        <v-icon size="50">mdi-chevron-left</v-icon>
+                    </v-btn>
+                    <img class="images"
+                        :src="require(`~/assets/images/${dialogHouseGallery.imageSrc}/${dialogHouseGallery.images[galleryIndex]}`)"
+                        :style="isMobile ? {'width': '95%'} : {'height': '375px', 'width': 'auto'}"
+                    />
+                    <v-btn class="chevron" v-if="!isMobile" @click="incrementGallery()" icon>
+                        <v-icon size="50">mdi-chevron-right</v-icon>
+                    </v-btn>
+                </span>
+                <span class="mobile-dialog-btns">
+                    <v-btn class="chevron" style="margin: 10px" v-if="isMobile" @click="decrementGallery()" icon>
+                        <v-icon size="50">mdi-chevron-left</v-icon>
+                    </v-btn>
+                    <v-btn class="chevron" style="margin: 10px" v-if="isMobile" @click="incrementGallery()" icon>
+                        <v-icon size="50">mdi-chevron-right</v-icon>
+                    </v-btn>
+                </span>
+            </v-card>
+        </v-dialog>
+
+        <!-- Home Details Dialog -->
+        <v-dialog v-if="showDialog"
+            v-model="showDialog"
             fullscreen
             :scrim="false"
             transition="dialog-bottom-transition"
@@ -20,12 +62,16 @@
                 </v-toolbar>
                 <div class="carousel-wrapper justify-center">
                     <span class="image-wrapper" v-for="(image, i) in openHouse.images" :key="i">
-                        <img class="images"
-                            :src="require(`~/assets/images/${openHouse.imageSrc}/${image}`)"
-                            style="width: 300px"
-                        />
+                        <button @click="popupGallery(openHouse, i)">
+                            <img class="images"
+                                :src="require(`~/assets/images/${openHouse.imageSrc}/${image}`)"
+                                style="width: 300px"
+                            />
+                        </button>
                     </span>
                 </div>
+
+                <!-- Dialog Computer View -->
                 <div class="text-row-wrapper" v-if="!isMobile">
                     <v-row class="text-row">
                         <v-col class="text-center" cols="6">
@@ -48,7 +94,8 @@
                         </v-col>
                     </v-row>
                 </div>
-                <!-- <div class="text-row-wrapper" v-if="isMobile"> -->
+
+                <!-- Dialog Mobile View -->
                 <div class="text-center" style="margin: 20px" v-if="isMobile">
                     <span class="header">Details</span><br>
                     <list>
@@ -67,10 +114,10 @@
                         <list-item class="list-items" v-for="(item, i) in openHouse.amenities" :key="i">{{item}}<br></list-item>
                     </list>
                 </div>
-                <!-- </div> -->
             </v-card>
         </v-dialog>
 
+        <!-- Row of Homes For Sale -->
         <v-row class="house-row" justify="center" align="center">
             <v-card class="house-card"
                 v-for="(house, i) in houses"
@@ -83,10 +130,12 @@
                         <v-btn class="chevron" @click="decrement(house)" icon>
                             <v-icon size="50">mdi-chevron-left</v-icon>
                         </v-btn>
-                        <img class="images"
-                            :src="require(`~/assets/images/${house.imageSrc}/${house.images[house.index]}`)"
-                            :style="isMobile ? {'width': '275px'} : null"
-                        />
+                        <button @click="popupGallery(house, house.index)">
+                            <img class="images"
+                                :src="require(`~/assets/images/${house.imageSrc}/${house.images[house.index]}`)"
+                                :style="isMobile ? {'width': '275px'} : null"
+                            />
+                        </button>
                         <v-btn class="chevron" @click="increment(house)" icon>
                             <v-icon size="50">mdi-chevron-right</v-icon>
                         </v-btn>
@@ -119,6 +168,9 @@ export default {
     return {
         openHouse: null,
         showDialog: false,
+        showImageDialog: false,
+        dialogHouseGallery: null,
+        galleryIndex: 0,
         picIndex: 0,
         houses: [
             {
@@ -174,10 +226,28 @@ export default {
         } else house.index--
     },
 
+    incrementGallery() {
+        if (this.galleryIndex === this.dialogHouseGallery.images.length - 1) {
+            this.galleryIndex = 0
+        } else this.galleryIndex++
+    },
+
+    decrementGallery() {
+        if (this.galleryIndex === 0) {
+            this.galleryIndex = this.dialogHouseGallery.images.length - 1
+        } else this.galleryIndex--
+    },
+
     openDialog(house) {
         this.openHouse = house
         this.showDialog = true
-    }
+    },
+
+    popupGallery(house, index) {
+        this.showImageDialog = true
+        this.dialogHouseGallery = house
+        this.galleryIndex = index
+    },
   },
 
   computed: {
@@ -274,6 +344,11 @@ export default {
     font-size: 26px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: underline;
+}
+
+.mobile-dialog-btns {
+    display: flex;
+    justify-content: center;
 }
 
 </style>

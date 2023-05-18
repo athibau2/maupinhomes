@@ -36,18 +36,18 @@
         elevation="0"
         color="transparent"
         height="50px"
-        to="/gallery"
+        to="/homes"
       >
-        Gallery
+        Homes For Sale
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
         elevation="0"
         color="transparent"
         height="50px"
-        to="/homes"
+        to="/gallery"
       >
-        For Sale
+        Gallery
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
@@ -129,12 +129,12 @@ export default {
           text: 'Home',
         },
         {
-          to: '/gallery',
-          text: 'Gallery',
+          to: '/homes',
+          text: 'Homes For Sale'
         },
         {
-          to: '/homes',
-          text: 'For Sale'
+          to: '/gallery',
+          text: 'Gallery',
         },
         {
           to: '/reviews',
