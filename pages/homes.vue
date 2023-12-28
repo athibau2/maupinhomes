@@ -198,22 +198,54 @@ export default {
                 ],
                 imageSrc: '15611-Paintbrush-St',
                 images: [
-                    'design-1.png',
-                    'design-2.png',
-                    'design-3.png',
-                    'design-4.png',
+                    // 'design-1.png',
+                    // 'design-2.png',
+                    // 'design-3.png',
+                    // 'design-4.png',
+                    // 'floor-plan-3.jpg',
+                    // 'floor-plan-4.jpg',
+                    // 'frame-1.jpg',
+                    // 'frame-3.jpg',
+                    'home-1.jpg',
+                    'home-2.jpg',
+                    'home-3.jpg',
+                    'home-4.jpg',
+                    'home-5.jpg',
+                    'home-6.jpg',
+                    'home-7.jpg',
+                    'home-8.jpg',
+                    'home-9.jpg',
+                    'home-10.jpg',
+                    'home-11.jpg',
+                    'home-12.jpg',
+                    'home-13.jpg',
+                    'home-14.jpg',
+                    'home-15.jpg',
+                    'home-16.jpg',
+                    'home-17.jpg',
+                    'home-18.jpg',
+                    'home-19.jpg',
+                    'home-20.jpg',
+                    'home-21.jpg',
+                    'home-22.jpg',
+                    'home-23.jpg',
+                    'home-24.jpg',
+                    'home-25.jpg',
+                    'home-26.jpg',
+                    'home-27.jpg',
+                    'home-28.jpg',
+                    'home-29.jpg',
+                    'home-30.jpg',
+                    'frame-2.jpg',
                     'floor-plan-1.png',
                     'floor-plan-2.png',
-                    'frame-1.jpg',
-                    'frame-2.jpg',
-                    'frame-3.jpg'
                 ]
             },
         ]
     }
-  },
+},
 
-  methods: {
+methods: {
     increment(house) {
         if (house.index === house.images.length - 1) {
             house.index =0
