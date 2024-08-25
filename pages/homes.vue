@@ -1,188 +1,61 @@
 <template>
     <div>
-        <h2 class="text-center">Current Homes For Sale</h2>
-
-        <!-- Gallery Dialog -->
-        <v-dialog v-if="showImageDialog"
-            v-model="showImageDialog"
-            transition="dialog-bottom-transition"
-            width="auto"
-        >
-            <v-card>
-                <v-toolbar class="dialog-toolbar">
-                    <v-btn icon @click="showImageDialog = false">
-                        <v-icon>mdi-close</v-icon>
-                    </v-btn>
-                    <v-toolbar-title
-                        :style="isMobile ? {'font-size': '16px'} : null"
-                    >
-                        Images for {{dialogHouseGallery.address}}
-                    </v-toolbar-title>
-                </v-toolbar>
-                <span class="title-container">
-                    <v-btn class="chevron" v-if="!isMobile" @click="decrementGallery()" icon>
-                        <v-icon size="50">mdi-chevron-left</v-icon>
-                    </v-btn>
-                    <img class="images"
-                        :src="require(`~/assets/images/${dialogHouseGallery.imageSrc}/${dialogHouseGallery.images[galleryIndex]}`)"
-                        :style="isMobile ? {'width': '95%'} : {'height': '375px', 'width': 'auto'}"
-                    />
-                    <v-btn class="chevron" v-if="!isMobile" @click="incrementGallery()" icon>
-                        <v-icon size="50">mdi-chevron-right</v-icon>
-                    </v-btn>
-                </span>
-                <span class="mobile-dialog-btns">
-                    <v-btn class="chevron" style="margin: 10px" v-if="isMobile" @click="decrementGallery()" icon>
-                        <v-icon size="50">mdi-chevron-left</v-icon>
-                    </v-btn>
-                    <v-btn class="chevron" style="margin: 10px" v-if="isMobile" @click="incrementGallery()" icon>
-                        <v-icon size="50">mdi-chevron-right</v-icon>
-                    </v-btn>
-                </span>
-            </v-card>
-        </v-dialog>
-
-        <!-- Home Details Dialog -->
-        <v-dialog v-if="showDialog"
-            v-model="showDialog"
-            fullscreen
-            :scrim="false"
-            transition="dialog-bottom-transition"
-        >
-            <v-card>
-                <v-toolbar class="dialog-toolbar">
-                    <v-btn icon @click="showDialog = false">
-                        <v-icon>mdi-close</v-icon>
-                    </v-btn>
-                    <v-toolbar-title
-                        :style="isMobile ? {'font-size': '16px'} : null"
-                    >
-                        {{openHouse.address}}
-                    </v-toolbar-title>
-                </v-toolbar>
-                <div class="carousel-wrapper justify-center">
-                    <span class="image-wrapper" v-for="(image, i) in openHouse.images" :key="i">
-                        <button @click="popupGallery(openHouse, i)">
-                            <img class="images"
-                                :src="require(`~/assets/images/${openHouse.imageSrc}/${image}`)"
-                                style="width: 300px"
-                            />
-                        </button>
-                    </span>
-                </div>
-
-                <!-- Dialog Computer View -->
-                <div class="text-row-wrapper" v-if="!isMobile">
-                    <v-row class="text-row">
-                        <v-col class="text-center" cols="6">
-                            <span class="header">Details</span><br>
-                            <list>
-                                <list-item class="list-items">{{openHouse.price}}</list-item><br>
-                                <list-item class="list-items">{{openHouse.numBeds}} Bed</list-item><br>
-                                <list-item class="list-items">{{openHouse.numBaths}} Bath</list-item><br>
-                                <list-item class="list-items">{{openHouse.totalSF}} Sq. Ft.</list-item><br>
-                                <list-item class="list-items">{{openHouse.neighborhood}}</list-item><br>
-                                <list-item class="list-items">{{openHouse.style}}</list-item><br>
-                                <list-item class="list-items">{{openHouse.distance}}</list-item><br>
-                            </list>
-                        </v-col>
-                        <v-col class="text-center" cols="6">
-                            <span class="header">Amenities</span><br>
-                            <list>
-                                <list-item class="list-items" v-for="(item, i) in openHouse.amenities" :key="i">{{item}}<br></list-item>
-                            </list>
-                        </v-col>
-                    </v-row>
-                </div>
-
-                <!-- Dialog Mobile View -->
-                <div class="text-center" style="margin: 20px" v-if="isMobile">
-                    <span class="header">Details</span><br>
-                    <list>
-                        <list-item class="list-items">{{openHouse.price}}</list-item><br>
-                        <list-item class="list-items">{{openHouse.numBeds}} Bed</list-item><br>
-                        <list-item class="list-items">{{openHouse.numBaths}} Bath</list-item><br>
-                        <list-item class="list-items">{{openHouse.totalSF}} Sq. Ft.</list-item><br>
-                        <list-item class="list-items">{{openHouse.neighborhood}}</list-item><br>
-                        <list-item class="list-items">{{openHouse.style}}</list-item><br>
-                        <list-item class="list-items">{{openHouse.distance}}</list-item><br>
-                    </list>
-                </div>
-                <div class="text-center" style="margin: 20px" v-if="isMobile">
-                    <span class="header">Amenities</span><br>
-                    <list>
-                        <list-item class="list-items" v-for="(item, i) in openHouse.amenities" :key="i">{{item}}<br></list-item>
-                    </list>
-                </div>
-            </v-card>
-        </v-dialog>
-
-        <!-- Row of Homes For Sale -->
-        <v-row class="house-row" justify="center" align="center">
-            <v-card class="house-card"
-                v-for="(house, i) in houses"
-                :key="i"
-                data-aos="fade-up"
-                data-aos-duration="500"
-            >
-                <v-card-title class="justify-center">
-                    <span class="title-container">
-                        <v-btn class="chevron" @click="decrement(house)" icon>
-                            <v-icon size="50">mdi-chevron-left</v-icon>
-                        </v-btn>
-                        <button @click="popupGallery(house, house.index)">
-                            <img class="images"
-                                :src="require(`~/assets/images/${house.imageSrc}/${house.images[house.index]}`)"
-                                :style="isMobile ? {'width': '275px'} : null"
-                            />
-                        </button>
-                        <v-btn class="chevron" @click="increment(house)" icon>
-                            <v-icon size="50">mdi-chevron-right</v-icon>
-                        </v-btn>
-                    </span>
-                    <span class="address justify-left"
-                        :style="isMobile ? {'font-size': '15px'} : null"
-                    >
-                        {{house.address}}
-                    </span>
-                </v-card-title>
-                <v-card-subtitle class="subtitle text-center">
-                    {{house.price}} | {{house.numBeds}} Bed | {{house.numBaths}} Bath | {{house.totalSF}} Sq. Ft
-                </v-card-subtitle>
-                <v-card-text class="text-center">
-                    <v-btn class="btn" @click="openDialog(house)" text>More Details</v-btn>
-                </v-card-text>
-            </v-card>
-        </v-row>
+        <ProjectList title="Homes For Sale" :houses="housesForSale" />
+        <div style="margin-top: 50px;"></div>
+        <ProjectList title="Sold Homes" :houses="soldHouses" />
     </div>
 </template>
 
 <script>
 import aosMixin from '~/mixins/aos'
+import ProjectList from '~/components/ProjectList.vue'
+
 export default {
   name: 'HomesPage',
   layout: 'default2',
   mixins: [aosMixin],
 
+  components: {
+    ProjectList
+  },
+
   data () {
     return {
-        openHouse: null,
-        showDialog: false,
-        showImageDialog: false,
-        dialogHouseGallery: null,
-        galleryIndex: 0,
-        picIndex: 0,
-        houses: [
+        housesForSale: [
             {
                 index: 0,
-                price: '$1,499,900',
+                price: '$599,900',
+                address: '122 Raven Way\nBuena Vista, CO 81211',
+                neighborhood: 'Sunset Vista',
+                totalSF: 1247,
+                numBeds: 2,
+                numBaths: 2,
+                style: 'Bungalow, Mountain Contemporary',
+                distance: '3 minutes from downtown Buena Vista, CO',
+                amenities: [
+                    'Open Floorplan',
+                    'Vaulted Ceilings',
+                    'Granite Countertops',
+                    'Stainless Steel Appliances',
+                    '2 Car oversized garage',
+                    '240V Plug for EV Charging',
+                    'Gorgeous Views of Mt. Princeton',
+                    'Close to 3 Hot Springs and a Drive-in Theatre',
+                ],
+                images: [ ...this.getImages('122-Raven-Way/finished/122RavenWay-', 27) ]
+            },
+        ],
+        soldHouses: [
+            {
+                index: 0,
+                // price: '$1,499,900',
                 address: '15611 Paintbrush St.\nBuena Vista, CO 81211',
                 neighborhood: 'Westwinds Subdivision HOA',
                 totalSF: 5016,
                 numBeds: 5,
                 numBaths: 4.5,
                 style: 'Modern Rustic farmhouse style',
-                distance: '3 minutes from downtown Buena Vista, CO',
+                distance: '4 minutes from downtown Buena Vista, CO',
                 amenities: [
                     'Office',
                     'Kitchen',
@@ -196,56 +69,22 @@ export default {
                     'Access to basement from main level and garage',
                     'Full kitchen in basement with pantry'
                 ],
-                imageSrc: '15611-Paintbrush-St',
-                images: [
-                    // 'design-1.png',
-                    // 'design-2.png',
-                    // 'design-3.png',
-                    // 'design-4.png',
-                    // 'floor-plan-3.jpg',
-                    // 'floor-plan-4.jpg',
-                    // 'frame-1.jpg',
-                    // 'frame-3.jpg',
-                    'home-1.jpg',
-                    'home-2.jpg',
-                    'home-3.jpg',
-                    'home-4.jpg',
-                    'home-5.jpg',
-                    'home-6.jpg',
-                    'home-7.jpg',
-                    'home-8.jpg',
-                    'home-9.jpg',
-                    'home-10.jpg',
-                    'home-11.jpg',
-                    'home-12.jpg',
-                    'home-13.jpg',
-                    'home-14.jpg',
-                    'home-15.jpg',
-                    'home-16.jpg',
-                    'home-17.jpg',
-                    'home-18.jpg',
-                    'home-19.jpg',
-                    'home-20.jpg',
-                    'home-21.jpg',
-                    'home-22.jpg',
-                    'home-23.jpg',
-                    'home-24.jpg',
-                    'home-25.jpg',
-                    'home-26.jpg',
-                    'home-27.jpg',
-                    'home-28.jpg',
-                    'home-29.jpg',
-                    'home-30.jpg',
-                    'frame-2.jpg',
-                    'floor-plan-1.png',
-                    'floor-plan-2.png',
-                ]
+                images: [ ...this.getImages('15611-Paintbrush-St/finished/15611Paintbrush-', 104) ]
             },
         ]
     }
 },
 
 methods: {
+    getImages(src, numPics) {
+        let images = []
+        for (let i = 0; i < numPics; ++i) {
+            let num = i + 1
+            images.push(src + num.toString() + '.jpg')
+        }
+        return images
+    },
+
     increment(house) {
         if (house.index === house.images.length - 1) {
             house.index =0

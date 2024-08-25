@@ -38,7 +38,7 @@
         height="50px"
         to="/homes"
       >
-        Homes For Sale
+        Projects
       </v-btn>
       <v-btn class="nav-btn"
         v-if="!isMobile"
@@ -110,7 +110,7 @@
       absolute
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}&ensp;{{ title }}</span>
+      <span>&copy; 2020 {{ title }}</span>
       <v-spacer />
       <nuxt-link to="/contact"><span>Contact Us</span></nuxt-link>
     </v-footer>
@@ -130,7 +130,7 @@ export default {
         },
         {
           to: '/homes',
-          text: 'Homes For Sale'
+          text: 'Projects'
         },
         {
           to: '/gallery',
