@@ -116,6 +116,8 @@ export default {
       currentIndex: 0,
       images: [
         'home_page.jpg',
+        '15611Paintbrush-87.jpg',
+        '122RavenWay-1.jpg',
         'pic1.jpg',
         'pic19.jpg'
       ],

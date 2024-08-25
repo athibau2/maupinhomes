@@ -42,7 +42,7 @@ export default {
                     'Gorgeous Views of Mt. Princeton',
                     'Close to 3 Hot Springs and a Drive-in Theatre',
                 ],
-                images: [ ...this.getImages('122-Raven-Way/finished/122RavenWay-', 27) ]
+                images: [ ...this.getImages('122-Raven-Way/finished/122RavenWay-', 26) ]
             },
         ],
         soldHouses: [
