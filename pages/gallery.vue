@@ -44,7 +44,7 @@ export default {
 
   data () {
     return {
-      numPics: 24,
+      numPics: 28,
       show: false,
       index: 1,
     }
